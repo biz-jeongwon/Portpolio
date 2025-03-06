@@ -1,11 +1,327 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-     <meta charset="UTF-8">
-     <title>Jeongwon's Portpolio</title>
-  </head>
-  <body>
-    Editting......
-  </body>
-</html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Portfolio | Your Name</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAbwAAAG8B8aLcQwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACZSURBVDiN7ZIxCsJAEETnQ4J6hVjZegKx8QhexMpOxcJGREUt1MpG8ADiBVLsB0JIWM1mQYv8Zj/MsjO7C+APkgAJ0AAt0AFH4AacgQ0Qj3B5nwBxPJ3iD7gDk7cHr4p7w0XyYAAy4N7Bmh4+AhsA4Bk8L4ACyIEnUAGrFqwB1sANqIFVB1YD1B0sD8a/4AtY+u4h8AWTuQfzQjvDjQAAAABJRU5ErkJggg==">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --light-bg: #f5f6fa;
+            --dark-text: #2d3436;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            display: flex;
+            background-color: var(--light-bg);
+        }
+
+        /* Navigation */
+        .sidebar {
+            width: 200px; /* 너비를 200px로 조정 */
+            height: 100vh;
+            background: var(--primary-color);
+            padding: 1.5rem; /* 패딩 조정 */
+            position: fixed;
+            color: white;
+            overflow-y: auto; /* 스크롤 가능하도록 설정 */
+        }
+
+        .profile h2 {
+            font-size: 1.2rem; /* 프로필 폰트 크기 조정 */
+        }
+
+        .profile p {
+            font-size: 0.9rem; /* 프로필 설명 폰트 크기 조정 */
+        }
+
+        .nav-links {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .nav-links li {
+            margin: 1rem 0; /* 리스트 아이템 간격 조정 */
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem; /* 폰트 크기 조정 */
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 200px; /* 왼쪽 바 너비에 맞게 조정 */
+            padding: 2rem;
+            width: calc(100% - 200px); /* 왼쪽 바 너비에 맞게 조정 */
+        }
+
+        section {
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+        }
+
+        .card {
+            background: var(--light-bg);
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Timeline */
+        .timeline-item {
+            border-left: 2px solid var(--accent-color);
+            padding-left: 1.5rem;
+            position: relative;
+            margin: 1.5rem 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: var(--accent-color);
+            position: absolute;
+            left: -7px;
+            top: 0;
+            border-radius: 50%;
+        }
+
+        /* Certificates */
+        .cert-item {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+        }
+
+        .cert-item i {
+            font-size: 1.8rem;
+            margin-right: 1rem;
+            color: var(--accent-color);
+        }
+
+        /* Languages */
+        .skill-bar {
+            margin: 1.2rem 0;
+        }
+
+        .bar-container {
+            width: 100%;
+            height: 8px;
+            background: #ddd;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+
+        .bar {
+            height: 100%;
+            border-radius: 4px;
+            background: var(--accent-color);
+        }
+
+        .fluent { width: 85%; }
+        .native { width: 100%; }
+
+        /* Links */
+        .cve-link, .slide-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .slide-link {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="profile">
+            <h2>Your Name</h2>
+            <p>Security Researcher</p>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#experiences">Experiences</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#cves">CVEs</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#languages">Languages</a></li>
+            <li><a href="#presentations">Presentations</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <!-- 기존 섹션들 유지 -->
+        <section id="experiences">
+            <h1>🛡️ Work Experiences</h1>
+            <div class="timeline-item">
+                <h3>Security Engineer @ Company</h3>
+                <p>2020 - Present</p>
+                <ul>
+                    <li>Vulnerability Research</li>
+                    <li>Penetration Testing</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h1>🎓 Education</h1>
+            <div class="timeline-item">
+                <h3>Computer Science & Engineering</h3>
+                <p>ABC University | 2016-2020</p>
+                <ul>
+                    <li>Network Security Track</li>
+                    <li>GPA: 4.2/4.5</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h1>🔧 Projects</h1>
+            <div class="card">
+                <h3>IoT Device Security Analysis</h3>
+                <p>Discovered 5 critical vulnerabilities in smart home devices</p>
+                <div class="tech-stack">
+                    <span class="tag">Reverse Engineering</span>
+                    <span class="tag">Fuzzing</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="awards">
+            <h1>🏆 Awards</h1>
+            <div class="card">
+                <h3>DEFCON CTF Finalist</h3>
+                <p>2022 | Team Leader</p>
+                <p>• Global cybersecurity competition finalist</p>
+            </div>
+        </section>
+
+        <section id="cves">
+            <h1>🔓 CVEs</h1>
+            <div class="card">
+                <h3>CVE-2023-12345</h3>
+                <p>Critical RCE in IoT Device</p>
+                <p>• CVSS 9.8 | Vendor: XYZ Corp</p>
+                <a href="#" class="cve-link">View Details</a>
+            </div>
+        </section>
+
+        <section id="certificates">
+            <h1>📜 Certificates</h1>
+            <div class="card">
+                <div class="cert-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h3>OSCP (Offensive Security Certified Professional)</h3>
+                        <p>2022 | Offensive Security</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="languages">
+            <h1>🌐 Languages</h1>
+            <div class="skill-bar">
+                <p>English <span>Fluent</span></p>
+                <div class="bar-container">
+                    <div class="bar fluent"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="presentations">
+            <h1>📢 Presentations</h1>
+            <div class="card">
+                <h3>Black Hat Asia 2023</h3>
+                <p>"Advanced IoT Exploitation Techniques"</p>
+                <a href="#" class="slide-link">View Slides</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll spy
+        window.addEventListener('scroll', function() {
+            let sections = document.querySelectorAll('section');
+            let navLinks = document.querySelectorAll('.nav-links a');
+            
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 150;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+
+                if(top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove('active');
+                        if(links.getAttribute('href').includes(id)) {
+                            links.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
