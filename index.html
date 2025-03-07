@@ -104,7 +104,7 @@
             background: var(--secondary-color);
             color: var(--dark-text);
             border-radius: 20px;
-            padding: 3rem;
+            padding: 2rem; /* 네임카드 내부 패딩 줄임 */
             margin-bottom: 3rem;
             position: relative;
             overflow: hidden;
@@ -115,10 +115,12 @@
             align-items: center;
             flex-direction: column;
             min-height: 100vh; /* 초기 화면에서만 중앙 정렬 */
+            width: 100%; /* 네임카드 공간을 더 크게 */
+            max-width: 600px; /* 네임카드 최대 너비 조정 */
         }
 
         .profile-card h1 {
-            font-size: 3rem;
+            font-size: 2.5rem; /* 폰트 크기 줄임 */
             margin-bottom: 1rem;
             border-bottom: none;
             color: var(--accent-color);
@@ -137,6 +139,7 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            font-size: 1rem; /* 폰트 크기 줄임 */
         }
 
         /* Cards */
