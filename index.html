@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Security Portfolio | Your Name</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAbwAAAG8B8aLcQwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACZSURBVDiN7ZIxCsJAEETnQ4J6hVjZegKx8QhexMpOxcJGREUt1MpG8ADiBVLsB0JIWM1mQYv8Zj/MsjO7C+APkgAJ0AAt0AFH4AacgQ0Qj3B5nwBxPJ3iD7gDk7cHr4p7w0XyYAAy4N7Bmh4+AhsA4Bk8L4ACyIEnUAGrFqwB1sANqIFVB1YD1B0sD8a/4AtY+u4h8AWTuQfzQjvDjQAAAABJRU5ErkJggg==">
+    <link rel="icon" type="image/png" href="https://www.favicon.cc/favicon/32/32/favicon.png">
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -28,21 +28,40 @@
 
         /* Navigation */
         .sidebar {
-            width: 200px; /* 너비를 200px로 조정 */
+            width: 60px; /* 매우 좁은 너비로 설정 */
             height: 100vh;
-            background: var(--primary-color);
-            padding: 1.5rem; /* 패딩 조정 */
+            background: rgba(44, 62, 80, 0.9); /* 투명도 추가 */
+            padding: 1rem;
             position: fixed;
             color: white;
-            overflow-y: auto; /* 스크롤 가능하도록 설정 */
+            overflow-y: auto;
+            backdrop-filter: blur(5px); /* 블러 효과 추가 */
+            transition: width 0.3s ease; /* 너비 변화 애니메이션 */
+            z-index: 1000; /* 메인 콘텐츠 위에 올라오도록 설정 */
+        }
+
+        .sidebar:hover {
+            width: 200px; /* 호버 시 확장 */
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            display: none; /* 기본적으로 숨김 */
+        }
+
+        .sidebar:hover .profile {
+            display: block; /* 호버 시 프로필 표시 */
         }
 
         .profile h2 {
-            font-size: 1.2rem; /* 프로필 폰트 크기 조정 */
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
 
         .profile p {
-            font-size: 0.9rem; /* 프로필 설명 폰트 크기 조정 */
+            font-size: 0.9rem;
+            color: #bdc3c7;
         }
 
         .nav-links {
@@ -51,14 +70,21 @@
         }
 
         .nav-links li {
-            margin: 1rem 0; /* 리스트 아이템 간격 조정 */
+            margin: 1rem 0;
+            white-space: nowrap; /* 텍스트 줄바꿈 방지 */
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-size: 1rem; /* 폰트 크기 조정 */
+            font-size: 1rem;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a i {
+            margin-right: 10px; /* 아이콘과 텍스트 간격 */
         }
 
         .nav-links a:hover {
@@ -67,9 +93,14 @@
 
         /* Main Content */
         .main-content {
-            margin-left: 200px; /* 왼쪽 바 너비에 맞게 조정 */
+            margin-left: 60px; /* 왼쪽 바 너비에 맞게 조정 */
             padding: 2rem;
-            width: calc(100% - 200px); /* 왼쪽 바 너비에 맞게 조정 */
+            width: calc(100% - 60px); /* 왼쪽 바 너비에 맞게 조정 */
+            transition: margin-left 0.3s ease; /* 애니메이션 추가 */
+        }
+
+        .sidebar:hover ~ .main-content {
+            margin-left: 200px; /* 호버 시 메인 콘텐츠 이동 */
         }
 
         section {
@@ -189,18 +220,31 @@
             <p>Security Researcher</p>
         </div>
         <ul class="nav-links">
-            <li><a href="#experiences">Experiences</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#awards">Awards</a></li>
-            <li><a href="#cves">CVEs</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#languages">Languages</a></li>
-            <li><a href="#presentations">Presentations</a></li>
+            <li><a href="#experiences"><i class="fas fa-briefcase"></i> Experiences</a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
+            <li><a href="#awards"><i class="fas fa-trophy"></i> Awards</a></li>
+            <li><a href="#cves"><i class="fas fa-bug"></i> CVEs</a></li>
+            <li><a href="#certificates"><i class="fas fa-certificate"></i> Certificates</a></li>
+            <li><a href="#languages"><i class="fas fa-globe"></i> Languages</a></li>
+            <li><a href="#presentations"><i class="fas fa-chalkboard-teacher"></i> Presentations</a></li>
         </ul>
     </nav>
 
     <main class="main-content">
+        <!-- 네임카드 섹션 추가 -->
+        <section id="namecard">
+            <div class="profile-card">
+                <h1>Your Name</h1>
+                <p>Security Researcher | OSCP Certified</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> your.email@example.com</p>
+                    <p><i class="fas fa-phone"></i> +82 10-1234-5678</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Seoul, South Korea</p>
+                </div>
+            </div>
+        </section>
+
         <!-- 기존 섹션들 유지 -->
         <section id="experiences">
             <h1>🛡️ Work Experiences</h1>
