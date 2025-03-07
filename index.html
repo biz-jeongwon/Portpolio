@@ -27,36 +27,36 @@
             background: var(--light-bg);
             color: var(--dark-text);
             min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Navigation */
         .sidebar {
             width: 80px;
-            height: 100vh;
+            height: auto;
             background: rgba(0, 0, 0, 0.9); /* 검정색 투명도 */
             padding: 1.5rem;
             position: fixed;
-            overflow-y: auto;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 20px;
             backdrop-filter: blur(10px);
             z-index: 1000;
-            transition: all 0.3s ease;
-            border-right: 2px solid var(--accent-color);
-        }
-
-        .sidebar:hover {
-            width: 220px;
-            box-shadow: 4px 0 15px rgba(255, 215, 0, 0.1);
+            border: 2px solid var(--accent-color);
         }
 
         .nav-links {
             list-style: none;
-            margin-top: 2rem;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links li {
             margin: 2rem 0;
             text-align: center;
-            position: relative;
         }
 
         .nav-links a {
@@ -64,46 +64,24 @@
             text-decoration: none;
             font-size: 1.8rem;
             transition: 0.3s;
-            display: flex;
-            align-items: center;
-            padding: 12px;
-            border-radius: 8px;
+            display: block;
         }
 
         .nav-links a:hover {
-            background: rgba(255, 215, 0, 0.1); /* 노란색 투명도 */
-            transform: translateX(5px);
-        }
-
-        .nav-links a::after {
-            content: attr(title);
-            position: absolute;
-            left: 80px;
-            background: var(--accent-color);
-            color: var(--primary-color);
-            padding: 5px 15px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            opacity: 0;
-            transition: 0.3s;
-            white-space: nowrap;
-        }
-
-        .nav-links a:hover::after {
-            opacity: 1;
-            left: 100%;
+            color: var(--accent-color);
         }
 
         /* Main Content */
         .main-content {
-            margin-left: 80px;
+            margin-left: 120px; /* 왼쪽 바와의 간격 */
             padding: 3rem;
-            width: calc(100% - 80px);
+            width: calc(100% - 120px);
+            max-width: 1200px;
         }
 
         /* Profile Section */
         #namecard {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            background: var(--secondary-color);
             color: var(--dark-text);
             border-radius: 20px;
             padding: 3rem;
@@ -111,17 +89,6 @@
             position: relative;
             overflow: hidden;
             border: 2px solid var(--accent-color);
-        }
-
-        #namecard::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 215, 0, 0.1); /* 노란색 투명도 */
-            border-radius: 50%;
         }
 
         .profile-card h1 {
@@ -247,13 +214,12 @@
 
         @media (max-width: 768px) {
             .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
+                width: 60px;
+                left: 10px;
+                padding: 1rem;
             }
             .main-content {
-                margin-left: 0;
-                width: 100%;
+                margin-left: 80px;
                 padding: 2rem 1rem;
             }
         }
@@ -262,14 +228,14 @@
 <body>
     <nav class="sidebar">
         <ul class="nav-links">
-            <li><a href="#namecard" title="Profile"><i class="fas fa-user"></i></a></li>
-            <li><a href="#experiences" title="Experiences"><i class="fas fa-briefcase"></i></a></li>
-            <li><a href="#education" title="Education"><i class="fas fa-graduation-cap"></i></a></li>
-            <li><a href="#projects" title="Projects"><i class="fas fa-code"></i></a></li>
-            <li><a href="#awards" title="Awards"><i class="fas fa-trophy"></i></a></li>
-            <li><a href="#cves" title="CVEs"><i class="fas fa-bug"></i></a></li>
-            <li><a href="#certificates" title="Certificates"><i class="fas fa-certificate"></i></a></li>
-            <li><a href="#presentations" title="Presentations"><i class="fas fa-chalkboard-teacher"></i></a></li>
+            <li><a href="#namecard"><i class="fas fa-user"></i></a></li>
+            <li><a href="#experiences"><i class="fas fa-briefcase"></i></a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap"></i></a></li>
+            <li><a href="#projects"><i class="fas fa-code"></i></a></li>
+            <li><a href="#awards"><i class="fas fa-trophy"></i></a></li>
+            <li><a href="#cves"><i class="fas fa-bug"></i></a></li>
+            <li><a href="#certificates"><i class="fas fa-certificate"></i></a></li>
+            <li><a href="#presentations"><i class="fas fa-chalkboard-teacher"></i></a></li>
         </ul>
     </nav>
 
@@ -288,10 +254,132 @@
         </section>
 
         <!-- 나머지 섹션들 -->
-        <!-- 각 섹션의 카드 구조는 이전과 동일하게 유지되며, 스타일은 CSS에서 개선됨 -->
-        <!-- ... (이전 코드의 섹션 내용 유지) ... -->
+        <section id="experiences">
+            <h1>🛡️ Work Experiences</h1>
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <div>
+                    <h3>Security Engineer @ Company</h3>
+                    <p>2020 - Present</p>
+                    <ul>
+                        <li>Vulnerability Research</li>
+                        <li>Penetration Testing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h1>🎓 Education</h1>
+            <div class="card">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                    <h3>Computer Science & Engineering</h3>
+                    <p>ABC University | 2016-2020</p>
+                    <ul>
+                        <li>Network Security Track</li>
+                        <li>GPA: 4.2/4.5</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h1>🔧 Projects</h1>
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <div>
+                    <h3>IoT Device Security Analysis</h3>
+                    <p>Discovered 5 critical vulnerabilities in smart home devices</p>
+                    <div class="tech-stack">
+                        <span class="tag">Reverse Engineering</span>
+                        <span class="tag">Fuzzing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="awards">
+            <h1>🏆 Awards</h1>
+            <div class="card">
+                <i class="fas fa-trophy"></i>
+                <div>
+                    <h3>DEFCON CTF Finalist</h3>
+                    <p>2022 | Team Leader</p>
+                    <p>• Global cybersecurity competition finalist</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cves">
+            <h1>🔓 CVEs</h1>
+            <div class="card">
+                <i class="fas fa-bug"></i>
+                <div>
+                    <h3>CVE-2023-12345</h3>
+                    <p>Critical RCE in IoT Device</p>
+                    <p>• CVSS 9.8 | Vendor: XYZ Corp</p>
+                    <a href="#" class="cve-link">View Details</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates">
+            <h1>📜 Certificates</h1>
+            <div class="card">
+                <i class="fas fa-certificate"></i>
+                <div>
+                    <h3>OSCP (Offensive Security Certified Professional)</h3>
+                    <p>2022 | Offensive Security</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="presentations">
+            <h1>📢 Presentations</h1>
+            <div class="card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <div>
+                    <h3>Black Hat Asia 2023</h3>
+                    <p>"Advanced IoT Exploitation Techniques"</p>
+                    <a href="#" class="slide-link">View Slides</a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- JavaScript 부분은 이전과 동일 -->
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll spy
+        window.addEventListener('scroll', function() {
+            let sections = document.querySelectorAll('section');
+            let navLinks = document.querySelectorAll('.nav-links a');
+            
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 150;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+
+                if(top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove('active');
+                        if(links.getAttribute('href').includes(id)) {
+                            links.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
