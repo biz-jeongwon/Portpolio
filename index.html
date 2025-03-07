@@ -30,6 +30,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden; /* 초기 스크롤 방지 */
         }
 
         /* Navigation */
@@ -46,17 +47,23 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             border: 2px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .nav-links {
             list-style: none;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem; /* 아이콘 간격 조정 */
         }
 
         .nav-links li {
-            margin: 2rem 0;
-            text-align: center;
+            margin: 0;
         }
 
         .nav-links a {
@@ -391,19 +398,27 @@
             
             sections.forEach(sec => {
                 let top = window.scrollY;
-                let offset = sec.offsetTop - window.innerHeight/2;
+                let offset = sec.offsetTop - window.innerHeight / 2;
                 let height = sec.offsetHeight;
 
-                if(top >= offset && top < offset + height) {
+                if (top >= offset && top < offset + height) {
                     navLinks.forEach(link => {
                         link.classList.remove('active');
-                        if(link.getAttribute('href') === `#${sec.id}`) {
+                        if (link.getAttribute('href') === `#${sec.id}`) {
                             link.classList.add('active');
                         }
                     });
                 }
             });
         });
+
+        // 초기 화면에서 네임카드만 보이도록 스크롤 조정
+        window.onload = () => {
+            document.querySelector('#namecard').scrollIntoView({
+                behavior: 'auto',
+                block: 'center'
+            });
+        };
     </script>
 </body>
 </html>
