@@ -22,7 +22,6 @@
         }
 
         body {
-            display: flex;
             background-color: var(--light-bg);
         }
 
@@ -36,32 +35,12 @@
             color: white;
             overflow-y: auto;
             backdrop-filter: blur(5px); /* 블러 효과 추가 */
-            transition: width 0.3s ease; /* 너비 변화 애니메이션 */
             z-index: 1000; /* 메인 콘텐츠 위에 올라오도록 설정 */
+            transition: background 0.3s ease;
         }
 
         .sidebar:hover {
-            width: 200px; /* 호버 시 확장 */
-        }
-
-        .profile {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            display: none; /* 기본적으로 숨김 */
-        }
-
-        .sidebar:hover .profile {
-            display: block; /* 호버 시 프로필 표시 */
-        }
-
-        .profile h2 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .profile p {
-            font-size: 0.9rem;
-            color: #bdc3c7;
+            background: rgba(44, 62, 80, 0.95); /* 호버 시 약간 더 진하게 */
         }
 
         .nav-links {
@@ -70,21 +49,16 @@
         }
 
         .nav-links li {
-            margin: 1rem 0;
-            white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+            margin: 1.5rem 0;
+            text-align: center;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 1.5rem;
             transition: 0.3s;
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-links a i {
-            margin-right: 10px; /* 아이콘과 텍스트 간격 */
+            display: block;
         }
 
         .nav-links a:hover {
@@ -95,12 +69,7 @@
         .main-content {
             margin-left: 60px; /* 왼쪽 바 너비에 맞게 조정 */
             padding: 2rem;
-            width: calc(100% - 60px); /* 왼쪽 바 너비에 맞게 조정 */
-            transition: margin-left 0.3s ease; /* 애니메이션 추가 */
-        }
-
-        .sidebar:hover ~ .main-content {
-            margin-left: 200px; /* 호버 시 메인 콘텐츠 이동 */
+            width: calc(100% - 60px);
         }
 
         section {
@@ -124,10 +93,18 @@
             border-radius: 8px;
             margin: 1rem 0;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
         }
 
         .card:hover {
             transform: translateY(-3px);
+        }
+
+        .card i {
+            font-size: 1.8rem;
+            margin-right: 1rem;
+            color: var(--accent-color);
         }
 
         /* Timeline */
@@ -215,19 +192,15 @@
 </head>
 <body>
     <nav class="sidebar">
-        <div class="profile">
-            <h2>Your Name</h2>
-            <p>Security Researcher</p>
-        </div>
         <ul class="nav-links">
-            <li><a href="#experiences"><i class="fas fa-briefcase"></i> Experiences</a></li>
-            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
-            <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
-            <li><a href="#awards"><i class="fas fa-trophy"></i> Awards</a></li>
-            <li><a href="#cves"><i class="fas fa-bug"></i> CVEs</a></li>
-            <li><a href="#certificates"><i class="fas fa-certificate"></i> Certificates</a></li>
-            <li><a href="#languages"><i class="fas fa-globe"></i> Languages</a></li>
-            <li><a href="#presentations"><i class="fas fa-chalkboard-teacher"></i> Presentations</a></li>
+            <li><a href="#experiences"><i class="fas fa-briefcase"></i></a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap"></i></a></li>
+            <li><a href="#projects"><i class="fas fa-code"></i></a></li>
+            <li><a href="#awards"><i class="fas fa-trophy"></i></a></li>
+            <li><a href="#cves"><i class="fas fa-bug"></i></a></li>
+            <li><a href="#certificates"><i class="fas fa-certificate"></i></a></li>
+            <li><a href="#languages"><i class="fas fa-globe"></i></a></li>
+            <li><a href="#presentations"><i class="fas fa-chalkboard-teacher"></i></a></li>
         </ul>
     </nav>
 
@@ -248,36 +221,45 @@
         <!-- 기존 섹션들 유지 -->
         <section id="experiences">
             <h1>🛡️ Work Experiences</h1>
-            <div class="timeline-item">
-                <h3>Security Engineer @ Company</h3>
-                <p>2020 - Present</p>
-                <ul>
-                    <li>Vulnerability Research</li>
-                    <li>Penetration Testing</li>
-                </ul>
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <div>
+                    <h3>Security Engineer @ Company</h3>
+                    <p>2020 - Present</p>
+                    <ul>
+                        <li>Vulnerability Research</li>
+                        <li>Penetration Testing</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section id="education">
             <h1>🎓 Education</h1>
-            <div class="timeline-item">
-                <h3>Computer Science & Engineering</h3>
-                <p>ABC University | 2016-2020</p>
-                <ul>
-                    <li>Network Security Track</li>
-                    <li>GPA: 4.2/4.5</li>
-                </ul>
+            <div class="card">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                    <h3>Computer Science & Engineering</h3>
+                    <p>ABC University | 2016-2020</p>
+                    <ul>
+                        <li>Network Security Track</li>
+                        <li>GPA: 4.2/4.5</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <section id="projects">
             <h1>🔧 Projects</h1>
             <div class="card">
-                <h3>IoT Device Security Analysis</h3>
-                <p>Discovered 5 critical vulnerabilities in smart home devices</p>
-                <div class="tech-stack">
-                    <span class="tag">Reverse Engineering</span>
-                    <span class="tag">Fuzzing</span>
+                <i class="fas fa-code"></i>
+                <div>
+                    <h3>IoT Device Security Analysis</h3>
+                    <p>Discovered 5 critical vulnerabilities in smart home devices</p>
+                    <div class="tech-stack">
+                        <span class="tag">Reverse Engineering</span>
+                        <span class="tag">Fuzzing</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -285,41 +267,48 @@
         <section id="awards">
             <h1>🏆 Awards</h1>
             <div class="card">
-                <h3>DEFCON CTF Finalist</h3>
-                <p>2022 | Team Leader</p>
-                <p>• Global cybersecurity competition finalist</p>
+                <i class="fas fa-trophy"></i>
+                <div>
+                    <h3>DEFCON CTF Finalist</h3>
+                    <p>2022 | Team Leader</p>
+                    <p>• Global cybersecurity competition finalist</p>
+                </div>
             </div>
         </section>
 
         <section id="cves">
             <h1>🔓 CVEs</h1>
             <div class="card">
-                <h3>CVE-2023-12345</h3>
-                <p>Critical RCE in IoT Device</p>
-                <p>• CVSS 9.8 | Vendor: XYZ Corp</p>
-                <a href="#" class="cve-link">View Details</a>
+                <i class="fas fa-bug"></i>
+                <div>
+                    <h3>CVE-2023-12345</h3>
+                    <p>Critical RCE in IoT Device</p>
+                    <p>• CVSS 9.8 | Vendor: XYZ Corp</p>
+                    <a href="#" class="cve-link">View Details</a>
+                </div>
             </div>
         </section>
 
         <section id="certificates">
             <h1>📜 Certificates</h1>
             <div class="card">
-                <div class="cert-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <h3>OSCP (Offensive Security Certified Professional)</h3>
-                        <p>2022 | Offensive Security</p>
-                    </div>
+                <i class="fas fa-certificate"></i>
+                <div>
+                    <h3>OSCP (Offensive Security Certified Professional)</h3>
+                    <p>2022 | Offensive Security</p>
                 </div>
             </div>
         </section>
 
         <section id="languages">
             <h1>🌐 Languages</h1>
-            <div class="skill-bar">
-                <p>English <span>Fluent</span></p>
-                <div class="bar-container">
-                    <div class="bar fluent"></div>
+            <div class="card">
+                <i class="fas fa-globe"></i>
+                <div class="skill-bar">
+                    <p>English <span>Fluent</span></p>
+                    <div class="bar-container">
+                        <div class="bar fluent"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -327,9 +316,12 @@
         <section id="presentations">
             <h1>📢 Presentations</h1>
             <div class="card">
-                <h3>Black Hat Asia 2023</h3>
-                <p>"Advanced IoT Exploitation Techniques"</p>
-                <a href="#" class="slide-link">View Slides</a>
+                <i class="fas fa-chalkboard-teacher"></i>
+                <div>
+                    <h3>Black Hat Asia 2023</h3>
+                    <p>"Advanced IoT Exploitation Techniques"</p>
+                    <a href="#" class="slide-link">View Slides</a>
+                </div>
             </div>
         </section>
     </main>
