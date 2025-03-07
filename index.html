@@ -30,7 +30,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden; /* 초기 스크롤 방지 */
         }
 
         /* Navigation */
@@ -98,6 +97,10 @@
             max-width: 800px;
             margin: 2rem 0;
             scroll-margin-top: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* 섹션 높이를 화면 높이로 설정 */
         }
 
         /* Profile Section */
@@ -111,6 +114,10 @@
             overflow: hidden;
             border: 2px solid var(--accent-color);
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .profile-card h1 {
@@ -412,7 +419,7 @@
             });
         });
 
-        // 초기 화면에서 네임카드만 보이도록 스크롤 조정
+        // 초기 화면에서 네임카드 중앙에 오도록 조정
         window.onload = () => {
             document.querySelector('#namecard').scrollIntoView({
                 behavior: 'auto',
