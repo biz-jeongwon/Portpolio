@@ -27,9 +27,53 @@
             background: var(--light-bg);
             color: var(--dark-text);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        }
+
+        /* Navigation */
+        .sidebar {
+            width: 80px;
+            height: auto;
+            background: rgba(0, 0, 0, 0.9); /* 검정색 투명도 */
+            padding: 1.5rem;
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border: 2px solid var(--accent-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .nav-links a {
+            color: var(--dark-text);
+            text-decoration: none;
+            font-size: 1.8rem;
+            transition: 0.3s;
+            display: block;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 120px; /* 왼쪽 바와의 간격 */
+            padding: 3rem;
+            width: calc(100% - 120px);
+            max-width: 1200px;
         }
 
         /* 네임카드 섹션 */
@@ -45,6 +89,8 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
+            margin: 0 auto; /* 중앙 정렬 */
+            margin-top: 20vh; /* 화면 중앙에 배치 */
         }
 
         .profile-card h1 {
@@ -95,20 +141,286 @@
             border-radius: 50%;
             z-index: -1;
         }
+
+        /* Cards */
+        .card {
+            background: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.1);
+            border-left: 4px solid var(--accent-color);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .card i {
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .card h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Tags */
+        .tech-stack {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Timeline */
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 3px solid var(--light-bg);
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 25px;
+            bottom: -20px;
+            width: 2px;
+            background: var(--accent-color);
+        }
+
+        /* Progress Bars */
+        .skill-bar {
+            width: 100%;
+            background: #444;
+            border-radius: 10px;
+            height: 10px;
+            margin-top: 0.8rem;
+            position: relative;
+        }
+
+        .bar {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--accent-color), var(--primary-color));
+            position: relative;
+        }
+
+        .bar::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: -3px;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 3px solid var(--light-bg);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 60px;
+                left: 10px;
+                padding: 1rem;
+            }
+            .main-content {
+                margin-left: 80px;
+                padding: 2rem 1rem;
+            }
+            #namecard {
+                width: 100%;
+                margin-top: 10vh;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- 네임카드 섹션 -->
-    <section id="namecard">
-        <div class="profile-card">
-            <h1>Your Name</h1>
-            <p>Security Researcher | OSCP Certified</p>
-            <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> your.email@example.com</p>
-                <p><i class="fas fa-phone"></i> +82 10-1234-5678</p>
-                <p><i class="fas fa-map-marker-alt"></i> Seoul, South Korea</p>
+    <nav class="sidebar">
+        <ul class="nav-links">
+            <li><a href="#namecard"><i class="fas fa-user"></i></a></li>
+            <li><a href="#experiences"><i class="fas fa-briefcase"></i></a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap"></i></a></li>
+            <li><a href="#projects"><i class="fas fa-code"></i></a></li>
+            <li><a href="#awards"><i class="fas fa-trophy"></i></a></li>
+            <li><a href="#cves"><i class="fas fa-bug"></i></a></li>
+            <li><a href="#certificates"><i class="fas fa-certificate"></i></a></li>
+            <li><a href="#presentations"><i class="fas fa-chalkboard-teacher"></i></a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <!-- 네임카드 섹션 -->
+        <section id="namecard">
+            <div class="profile-card">
+                <h1>Your Name</h1>
+                <p>Security Researcher | OSCP Certified</p>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> your.email@example.com</p>
+                    <p><i class="fas fa-phone"></i> +82 10-1234-5678</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Seoul, South Korea</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- 나머지 섹션들 -->
+        <section id="experiences">
+            <h1>🛡️ Work Experiences</h1>
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <div>
+                    <h3>Security Engineer @ Company</h3>
+                    <p>2020 - Present</p>
+                    <ul>
+                        <li>Vulnerability Research</li>
+                        <li>Penetration Testing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h1>🎓 Education</h1>
+            <div class="card">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                    <h3>Computer Science & Engineering</h3>
+                    <p>ABC University | 2016-2020</p>
+                    <ul>
+                        <li>Network Security Track</li>
+                        <li>GPA: 4.2/4.5</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h1>🔧 Projects</h1>
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <div>
+                    <h3>IoT Device Security Analysis</h3>
+                    <p>Discovered 5 critical vulnerabilities in smart home devices</p>
+                    <div class="tech-stack">
+                        <span class="tag">Reverse Engineering</span>
+                        <span class="tag">Fuzzing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="awards">
+            <h1>🏆 Awards</h1>
+            <div class="card">
+                <i class="fas fa-trophy"></i>
+                <div>
+                    <h3>DEFCON CTF Finalist</h3>
+                    <p>2022 | Team Leader</p>
+                    <p>• Global cybersecurity competition finalist</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cves">
+            <h1>🔓 CVEs</h1>
+            <div class="card">
+                <i class="fas fa-bug"></i>
+                <div>
+                    <h3>CVE-2023-12345</h3>
+                    <p>Critical RCE in IoT Device</p>
+                    <p>• CVSS 9.8 | Vendor: XYZ Corp</p>
+                    <a href="#" class="cve-link">View Details</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="certificates">
+            <h1>📜 Certificates</h1>
+            <div class="card">
+                <i class="fas fa-certificate"></i>
+                <div>
+                    <h3>OSCP (Offensive Security Certified Professional)</h3>
+                    <p>2022 | Offensive Security</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="presentations">
+            <h1>📢 Presentations</h1>
+            <div class="card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <div>
+                    <h3>Black Hat Asia 2023</h3>
+                    <p>"Advanced IoT Exploitation Techniques"</p>
+                    <a href="#" class="slide-link">View Slides</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll spy
+        window.addEventListener('scroll', function() {
+            let sections = document.querySelectorAll('section');
+            let navLinks = document.querySelectorAll('.nav-links a');
+            
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 150;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+
+                if(top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove('active');
+                        if(links.getAttribute('href').includes(id)) {
+                            links.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
