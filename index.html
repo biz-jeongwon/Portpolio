@@ -46,23 +46,17 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             border: 2px solid var(--accent-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .nav-links {
             list-style: none;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem; /* 아이콘 간격 조정 */
         }
 
         .nav-links li {
-            margin: 0;
+            margin: 2rem 0;
+            text-align: center;
         }
 
         .nav-links a {
@@ -77,69 +71,48 @@
             color: var(--accent-color);
         }
 
-        .nav-links a.active {
-            color: var(--accent-color);
-        }
-
         /* Main Content */
         .main-content {
-            margin-left: 120px;
-            padding: 3rem 1rem;
+            margin-left: 120px; /* 왼쪽 바와의 간격 */
+            padding: 3rem;
             width: calc(100% - 120px);
             max-width: 1200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
-        section {
-            width: 100%;
-            max-width: 800px;
-            margin: 2rem 0;
-            scroll-margin-top: 100px;
-        }
-
-        /* Profile Section */
+        /* 네임카드 섹션 */
         #namecard {
             background: var(--secondary-color);
             color: var(--dark-text);
-            border-radius: 20px;
-            padding: 2rem; /* 네임카드 내부 패딩 줄임 */
-            margin-bottom: 3rem;
-            position: relative;
-            overflow: hidden;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
             border: 2px solid var(--accent-color);
+            width: 300px; /* 명함 크기로 조정 */
             text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            min-height: 100vh; /* 초기 화면에서만 중앙 정렬 */
-            width: 100%; /* 네임카드 공간을 더 크게 */
-            max-width: 600px; /* 네임카드 최대 너비 조정 */
         }
 
         .profile-card h1 {
-            font-size: 2.5rem; /* 폰트 크기 줄임 */
-            margin-bottom: 1rem;
-            border-bottom: none;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
             color: var(--accent-color);
         }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+        .profile-card p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
         }
 
         .contact-info p {
-            margin: 0;
+            margin: 0.5rem 0;
+            font-size: 0.8rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            font-size: 1rem; /* 폰트 크기 줄임 */
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info i {
+            color: var(--accent-color);
         }
 
         /* Cards */
@@ -258,6 +231,9 @@
             .main-content {
                 margin-left: 80px;
                 padding: 2rem 1rem;
+            }
+            #namecard {
+                width: 100%;
             }
         }
     </style>
@@ -390,10 +366,8 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
         });
@@ -405,27 +379,20 @@
             
             sections.forEach(sec => {
                 let top = window.scrollY;
-                let offset = sec.offsetTop - window.innerHeight / 2;
+                let offset = sec.offsetTop - 150;
                 let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
 
-                if (top >= offset && top < offset + height) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sec.id}`) {
-                            link.classList.add('active');
+                if(top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove('active');
+                        if(links.getAttribute('href').includes(id)) {
+                            links.classList.add('active');
                         }
                     });
                 }
             });
         });
-
-        // 초기 화면에서 네임카드 중앙에 오도록 조정
-        window.onload = () => {
-            document.querySelector('#namecard').scrollIntoView({
-                behavior: 'auto',
-                block: 'center'
-            });
-        };
     </script>
 </body>
 </html>
