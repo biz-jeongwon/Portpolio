@@ -9,11 +9,11 @@
     <link rel="icon" type="image/png" href="https://www.favicon.cc/favicon/32/32/favicon.png">
     <style>
         :root {
-            --primary-color: #000000; /* 검정색 */
-            --accent-color: #FFD700; /* 노란색 */
-            --secondary-color: #333333; /* 어두운 회색 */
-            --light-bg: #1A1A1A; /* 어두운 배경 */
-            --dark-text: #FFFFFF; /* 흰색 텍스트 */
+            --primary-color: #000000;
+            --accent-color: #FFD700;
+            --secondary-color: #333333;
+            --light-bg: #1A1A1A;
+            --dark-text: #FFFFFF;
         }
 
         * {
@@ -32,11 +32,10 @@
             justify-content: center;
         }
 
-        /* Navigation */
         .sidebar {
             width: 80px;
             height: auto;
-            background: rgba(0, 0, 0, 0.9); /* 검정색 투명도 */
+            background: rgba(0, 0, 0, 0.9);
             padding: 1.5rem;
             position: fixed;
             left: 20px;
@@ -58,7 +57,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2rem; /* 아이콘 간격 조정 */
+            gap: 2rem;
         }
 
         .nav-links li {
@@ -81,7 +80,6 @@
             color: var(--accent-color);
         }
 
-        /* Main Content */
         .main-content {
             margin-left: 120px;
             padding: 3rem 1rem;
@@ -99,12 +97,11 @@
             scroll-margin-top: 100px;
         }
 
-        /* Profile Section */
         #namecard {
             background: var(--secondary-color);
             color: var(--dark-text);
             border-radius: 20px;
-            padding: 2rem; /* 네임카드 내부 패딩 줄임 */
+            padding: 2rem;
             margin-bottom: 3rem;
             position: relative;
             overflow: hidden;
@@ -114,13 +111,13 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            min-height: 100vh; /* 초기 화면에서만 중앙 정렬 */
-            width: 100%; /* 네임카드 공간을 더 크게 */
-            max-width: 600px; /* 네임카드 최대 너비 조정 */
+            min-height: 100vh;
+            width: 100%;
+            max-width: 600px;
         }
 
         .profile-card h1 {
-            font-size: 2.5rem; /* 폰트 크기 줄임 */
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             border-bottom: none;
             color: var(--accent-color);
@@ -139,10 +136,9 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            font-size: 1rem; /* 폰트 크기 줄임 */
+            font-size: 1rem;
         }
 
-        /* Cards */
         .card {
             background: var(--secondary-color);
             padding: 2rem;
@@ -174,7 +170,6 @@
             font-weight: 700;
         }
 
-        /* Tags */
         .tech-stack {
             display: flex;
             gap: 0.8rem;
@@ -190,7 +185,6 @@
             font-weight: 500;
         }
 
-        /* Timeline */
         .timeline-item {
             position: relative;
             padding-left: 2.5rem;
@@ -220,7 +214,6 @@
             background: var(--accent-color);
         }
 
-        /* Progress Bars */
         .skill-bar {
             width: 100%;
             background: #444;
@@ -272,6 +265,7 @@
             <li><a href="#awards"><i class="fas fa-trophy"></i></a></li>
             <li><a href="#cves"><i class="fas fa-bug"></i></a></li>
             <li><a href="#certificates"><i class="fas fa-certificate"></i></a></li>
+            <li><a href="#languages"><i class="fas fa-language"></i></a></li>
             <li><a href="#presentations"><i class="fas fa-chalkboard-teacher"></i></a></li>
         </ul>
     </nav>
@@ -281,7 +275,7 @@
         <section id="namecard">
             <div class="profile-card">
                 <h1>Your Name</h1>
-                <p>Security Researcher | OSCP Certified</p>
+                <p>Security Researcher | CERT Veteran</p>
                 <div class="contact-info">
                     <p><i class="fas fa-envelope"></i> your.email@example.com</p>
                     <p><i class="fas fa-phone"></i> +82 10-1234-5678</p>
@@ -290,96 +284,217 @@
             </div>
         </section>
 
-        <!-- 나머지 섹션들 -->
+        <!-- 경력 -->
         <section id="experiences">
             <h1>🛡️ Work Experiences</h1>
             <div class="card">
                 <i class="fas fa-briefcase"></i>
                 <div>
-                    <h3>Security Engineer @ Company</h3>
-                    <p>2020 - Present</p>
-                    <ul>
-                        <li>Vulnerability Research</li>
-                        <li>Penetration Testing</li>
-                    </ul>
+                    <h3>CPU 소프트웨어동아리 활동</h3>
+                    <p>2018 - 2019 | Member</p>
+                    <p>• Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <div>
+                    <h3>Whois 정보보호소학회 활동</h3>
+                    <p>2021 | Member</p>
+                    <p>• Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <div>
+                    <h3>해군 정보보호병(CERT) 근무</h3>
+                    <p>2022 - 2024 | 정보보호병</p>
+                    <p>• Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <div>
+                    <h3>P4C System hacking 8th</h3>
+                    <p>2024 | Participant</p>
+                    <p>• Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-briefcase"></i>
+                <div>
+                    <h3>KnockOn ELITE HACKER Bootcamp Mentor</h3>
+                    <p>2024 - 2025 | 2nd, 3rd, 4th QnA Mentor</p>
+                    <p>• Description</p>
                 </div>
             </div>
         </section>
 
+        <!-- 교육 -->
         <section id="education">
             <h1>🎓 Education</h1>
             <div class="card">
                 <i class="fas fa-graduation-cap"></i>
                 <div>
-                    <h3>Computer Science & Engineering</h3>
-                    <p>ABC University | 2016-2020</p>
-                    <ul>
-                        <li>Network Security Track</li>
-                        <li>GPA: 4.2/4.5</li>
-                    </ul>
+                    <h3>Ajou University Cyber Security</h3>
+                    <p>2021 - 2026 | Bachelor's Degree</p>
+                    <p>• Description</p>
                 </div>
             </div>
         </section>
 
+        <!-- 프로젝트 -->
         <section id="projects">
             <h1>🔧 Projects</h1>
             <div class="card">
                 <i class="fas fa-code"></i>
                 <div>
-                    <h3>IoT Device Security Analysis</h3>
-                    <p>Discovered 5 critical vulnerabilities in smart home devices</p>
-                    <div class="tech-stack">
-                        <span class="tag">Reverse Engineering</span>
-                        <span class="tag">Fuzzing</span>
-                    </div>
+                    <h3>Nebula Contest</h3>
+                    <p>2024 | Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <div>
+                    <h3>KnockOn 1-day Analysis project</h3>
+                    <p>2024 | Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <div>
+                    <h3>WeMeet project</h3>
+                    <p>2025 | Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-code"></i>
+                <div>
+                    <h3>KnockOn Bugbounty project</h3>
+                    <p>2025 | Description</p>
                 </div>
             </div>
         </section>
 
+        <!-- 수상 내역 -->
         <section id="awards">
             <h1>🏆 Awards</h1>
             <div class="card">
                 <i class="fas fa-trophy"></i>
                 <div>
-                    <h3>DEFCON CTF Finalist</h3>
-                    <p>2022 | Team Leader</p>
-                    <p>• Global cybersecurity competition finalist</p>
+                    <h3>전국 고등학교 소프트웨어 경진대회</h3>
+                    <p>2019 | 4회</p>
+                    <p>• Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-trophy"></i>
+                <div>
+                    <h3>Hacking camp 30th</h3>
+                    <p>2025 | Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-trophy"></i>
+                <div>
+                    <h3>KnockOn ELITE HACKER Bootcamp 1st Web Top 7</h3>
+                    <p>2024 | Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-trophy"></i>
+                <div>
+                    <h3>P4C Web bughunting 1st</h3>
+                    <p>2025 | Description</p>
                 </div>
             </div>
         </section>
 
+        <!-- CVE -->
         <section id="cves">
             <h1>🔓 CVEs</h1>
             <div class="card">
                 <i class="fas fa-bug"></i>
                 <div>
-                    <h3>CVE-2023-12345</h3>
-                    <p>Critical RCE in IoT Device</p>
-                    <p>• CVSS 9.8 | Vendor: XYZ Corp</p>
-                    <a href="#" class="cve-link">View Details</a>
+                    <h3>CVE-2025-25428</h3>
+                    <p>• Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-bug"></i>
+                <div>
+                    <h3>CVE-2025-25429</h3>
+                    <p>• Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-bug"></i>
+                <div>
+                    <h3>CVE-2025-25430</h3>
+                    <p>• Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-bug"></i>
+                <div>
+                    <h3>CVE-2025-25431</h3>
+                    <p>• Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-bug"></i>
+                <div>
+                    <h3>CVE-2025-25778</h3>
+                    <p>• Description</p>
                 </div>
             </div>
         </section>
 
+        <!-- 자격증 -->
         <section id="certificates">
             <h1>📜 Certificates</h1>
             <div class="card">
                 <i class="fas fa-certificate"></i>
                 <div>
-                    <h3>OSCP (Offensive Security Certified Professional)</h3>
-                    <p>2022 | Offensive Security</p>
+                    <h3>LPIC-1</h3>
+                    <p>• Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-certificate"></i>
+                <div>
+                    <h3>정보처리기능사</h3>
+                    <p>• Description</p>
                 </div>
             </div>
         </section>
 
+        <!-- 언어 -->
+        <section id="languages">
+            <h1>🌐 Languages</h1>
+            <div class="card">
+                <i class="fas fa-language"></i>
+                <div>
+                    <h3>TOEIC</h3>
+                    <p>• Description</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 발표 자료 -->
         <section id="presentations">
             <h1>📢 Presentations</h1>
             <div class="card">
                 <i class="fas fa-chalkboard-teacher"></i>
                 <div>
-                    <h3>Black Hat Asia 2023</h3>
-                    <p>"Advanced IoT Exploitation Techniques"</p>
-                    <a href="#" class="slide-link">View Slides</a>
+                    <h3>KUCIS 서경강권 세미나</h3>
+                    <p>• Description</p>
+                </div>
+            </div>
+            <div class="card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <div>
+                    <h3>해킹하는 부엉이들 웹 세미나</h3>
+                    <p>• Description</p>
                 </div>
             </div>
         </section>
