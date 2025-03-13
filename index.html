@@ -82,7 +82,7 @@
 
         .main-content {
             margin-left: 120px;
-            padding: 3rem 1rem;
+            padding: 0px 1rem 3rem 1rem;
             width: calc(100% - 120px);
             max-width: 1200px;
             display: flex;
@@ -101,7 +101,7 @@
             background: var(--secondary-color);
             color: var(--dark-text);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2rem 1rem 2rem 2rem;
             margin-top: 40vh;
             margin-bottom: 40vh;
             position: relative;
@@ -116,11 +116,37 @@
             width: 400px;
         }
 
-        .profile-card h1 {
+        .profile-card {
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-card___info {
+            display:flex;
+            flex-direction: column;
+        }
+
+        .profile-card___info___name {
             font-size: 1.5rem;
-            margin-bottom: 1rem;
             border-bottom: none;
             color: var(--accent-color);
+        }
+
+        .name {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .name___img {
+            border-radius: 60%;
+            border: 2px solid var(--accent-color);
+            width: 100px;
+            height: 100px;
+            margin-right:1rem;
         }
 
         .contact-info {
@@ -129,7 +155,7 @@
             flex-wrap: wrap;
         }
 
-        .contact-info p {
+        .profile-card___info p {
             margin: 0;
             display: flex;
             align-items: center;
@@ -248,7 +274,7 @@
             }
             .main-content {
                 margin-left: 80px;
-                padding: 2rem 1rem;
+                padding: 0rem 1rem 3rem 1rem;
             }
         }
     </style>
@@ -272,12 +298,15 @@
         <!-- 네임카드 섹션 -->
         <section id="namecard">
             <div class="profile-card">
-                <h1>Jeongwon</h1>
-                <p>Security Researcher | Pentester</p>
-                <div class="contact-info">
-                    <p><i class="fas fa-envelope"></i>biz-jeongwon@gmail.com</p>
-                    <p><i class="fa-brands fa-github"></i><a style="color: white; text-decoration-line:none;" href="https://github.com/biz-jeongwon">https://github.com/biz-jeongwon</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> Suwon, South Korea</p>
+                <div class="profile-card___name">
+                    <img class="name___img" src="./img/avatar.png" />
+                </div>
+                <div class="profile-card___info">
+                    <h1 style="text-align: left; padding-left: 10px" class="profile-card___info___name" >Jeongwon</h1>
+                    <h4 style="text-align: left; padding-left: 10px; margin-bottom:5px;">Penetration Tester</h4>
+                    <p style="text-align: left; padding-left: 10px"><i class="fas fa-envelope"></i>biz-jeongwon@gmail.com</p>
+                    <p style="text-align: left; padding-left: 10px"><i class="fa-brands fa-github"></i><a style="color: white; text-decoration-line:none;" href="https://github.com/biz-jeongwon">https://github.com/biz-jeongwon</a></p>
+                    <p style="text-align: left; padding-left: 10px"><i class="fas fa-map-marker-alt"></i> Suwon, South Korea</p>
                 </div>
             </div>
         </section>
